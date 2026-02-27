@@ -28,7 +28,7 @@ public partial class ListaProduto : ContentPage
         }
     }
 
-    private void ToolbarItem_Clicked(object sender, EventArgs e)
+    private void btnAdicionar(object sender, EventArgs e)
     {
         try
         {
@@ -41,7 +41,7 @@ public partial class ListaProduto : ContentPage
         }
     }
 
-    private async void txt_search_TextChanged(object sender, TextChangedEventArgs e)
+    private async void evt_pesquisar(object sender, TextChangedEventArgs e)
     {
         try
         {
@@ -65,7 +65,7 @@ public partial class ListaProduto : ContentPage
         }
     }
 
-    private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+    private void btnSomar(object sender, EventArgs e)
     {
         double soma = lista.Sum(i => i.Total);
 
@@ -74,7 +74,7 @@ public partial class ListaProduto : ContentPage
         DisplayAlert("Total dos Produtos", msg, "OK");
     }
 
-    private async void MenuItem_Clicked(object sender, EventArgs e)
+    private async void btnRemover(object sender, EventArgs e)
     {
         try
         {
@@ -96,7 +96,7 @@ public partial class ListaProduto : ContentPage
         }
     }
 
-    private void lst_produtos_ItemSelected(object sender, 
+    private void btnEditar(object sender, 
         SelectedItemChangedEventArgs e)
     {
         try
@@ -114,7 +114,7 @@ public partial class ListaProduto : ContentPage
         }
     }
 
-    private async void lst_produtos_Refreshing(object sender, EventArgs e)
+    private async void evt_atualizarLista(object sender, EventArgs e)
     {
         try
         {

@@ -5,8 +5,8 @@
              Title="Minhas Compras">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_1" />
-        <ToolbarItem Text="Adicionar" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem Text="Somar" Clicked="btnSomar" />
+        <ToolbarItem Text="Adicionar" Clicked="btnAdicionar" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
@@ -25,7 +25,7 @@
     <StackLayout>
         <SearchBar x:Name="txt_search"
                    Placeholder="Busca de Produtos"
-                   TextChanged="txt_search_TextChanged">
+                   TextChanged="evt_pesquisar">
             <SearchBar.Margin>
                 <OnPlatform  x:TypeArguments="Thickness">
                     <On Platform="Android" Value="-15, 0, 0, 0" />
@@ -37,8 +37,8 @@
         <Frame Padding="0" Margin="10" VerticalOptions="FillAndExpand">
             <ListView x:Name="lst_produtos"
                   IsPullToRefreshEnabled="True"
-                  Refreshing="lst_produtos_Refreshing"
-                  ItemSelected="lst_produtos_ItemSelected">
+                  Refreshing="evt_atualizarLista"
+                  ItemSelected="btnEditar">
                 <ListView.Header>
                     <Grid ColumnDefinitions="30, 100, 80, 50, 90"
                           Style="{StaticResource Key=cabecalho_listview}">
@@ -54,7 +54,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
+                                <MenuItem Text="Remover" Clicked="btnRemover" />
                             </ViewCell.ContextActions>
                             <Grid ColumnDefinitions="30, 100, 80, 50, 90">
                                 <Label Grid.Column="0" Text="{Binding Id}" Padding="5" />
