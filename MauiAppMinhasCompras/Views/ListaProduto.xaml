@@ -23,7 +23,7 @@
     </ContentPage.Resources>
     
     <StackLayout>
-        <SearchBar x:Name="txt_search"
+        <SearchBar x:Name="txt_pesquisa"
                    Placeholder="Busca de Produtos"
                    TextChanged="evt_pesquisar">
             <SearchBar.Margin>
