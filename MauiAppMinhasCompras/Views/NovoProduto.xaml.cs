@@ -9,7 +9,7 @@ public partial class NovoProduto : ContentPage
 		InitializeComponent();
 	}
 
-    private async void ToolbarItem_Clicked(object sender, EventArgs e)
+    private async void BtnSalvar(object sender, EventArgs e)
     {
 		try
 		{
@@ -27,6 +27,6 @@ public partial class NovoProduto : ContentPage
 		} catch(Exception ex)
 		{
 			await DisplayAlert("Ops", ex.Message, "OK");
-        } // Fecha try-catch
-    } // Fecha ToolbarItem_Clicked
-} // Fecha classe NovoProduto
+        }
+    }
+}
