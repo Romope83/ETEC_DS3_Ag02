@@ -22,6 +22,12 @@ namespace MauiAppMinhasCompras.Models
         }
         public double Quantidade {  get; set; }
         public double Preco {  get; set; }
+
+        // Desafio 1: Categoria
+        public string Categoria { get; set; }
+
+        // Desafio 2: Data de Cadastro
+        public DateTime DataCadastro { get; set; }
         public double Total { get => Quantidade * Preco; }
-    } // Fecha classe
-} // Fecha Namespace
+    }
+}

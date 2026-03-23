@@ -9,7 +9,7 @@ public partial class EditarProduto : ContentPage
 		InitializeComponent();
 	}
 
-    private async void ToolbarItem_Clicked(object sender, EventArgs e)
+    private async void btSalvar(object sender, EventArgs e)
     {
         try
         {
@@ -20,7 +20,11 @@ public partial class EditarProduto : ContentPage
                 Id = produto_anexado.Id,
                 Descricao = txt_descricao.Text,
                 Quantidade = Convert.ToDouble(txt_quantidade.Text),
-                Preco = Convert.ToDouble(txt_preco.Text)
+                Preco = Convert.ToDouble(txt_preco.Text),
+
+                // Capturando os novos campos da interface
+                Categoria = pck_categoria.SelectedItem?.ToString() ?? "Outros",
+                DataCadastro = dtp_data.Date
             };
 
             await App.Db.Update(p);

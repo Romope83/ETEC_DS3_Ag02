@@ -133,4 +133,9 @@ public partial class ListaProduto : ContentPage
             lst_produtos.IsRefreshing = false;
         }
     }
+
+    private async void btnRelatorio(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Views.Relatorio());
+    }
 }

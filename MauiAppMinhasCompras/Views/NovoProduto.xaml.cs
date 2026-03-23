@@ -11,22 +11,25 @@ public partial class NovoProduto : ContentPage
 
     private async void BtnSalvar(object sender, EventArgs e)
     {
-		try
-		{
-			Produto p = new Produto
-			{
-				Descricao = txt_descricao.Text,
-				Quantidade = Convert.ToDouble(txt_quantidade.Text),
-				Preco = Convert.ToDouble(txt_preco.Text)
-			};
+        try
+        {
+            Produto p = new Produto
+            {
+                Descricao = txt_descricao.Text,
+                Quantidade = Convert.ToDouble(txt_quantidade.Text),
+                Preco = Convert.ToDouble(txt_preco.Text),
+                // Novos Campos
+                Categoria = pck_categoria.SelectedItem?.ToString() ?? "Outros",
+                DataCadastro = dtp_data.Date
+            };
 
-			await App.Db.Insert(p);
-			await DisplayAlert("Sucesso!", "Registro Inserido", "OK");
-			await Navigation.PopAsync();
+            await App.Db.Insert(p);
+            await DisplayAlert("Sucesso!", "Registro Inserido", "OK");
+            await Navigation.PopAsync();
 
-		} catch(Exception ex)
-		{
-			await DisplayAlert("Ops", ex.Message, "OK");
+        } catch(Exception ex)
+        {
+            await DisplayAlert("Ops", ex.Message, "OK");
         }
     }
 }

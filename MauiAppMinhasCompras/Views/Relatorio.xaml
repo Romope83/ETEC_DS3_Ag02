@@ -1,0 +1,50 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMinhasCompras.Views.Relatorio"
+             Title="Relatório de Gastos">
+
+    <StackLayout Padding="10" Spacing="10">
+        <Frame BorderColor="Gray" Padding="10">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Filtrar por Categoria:" FontAttributes="Bold" />
+                <Picker x:Name="pck_categoria_filtro" SelectedIndexChanged="FiltroChanged">
+                    <Picker.Items>
+                        <x:String>Todas</x:String>
+                        <x:String>Alimentos</x:String>
+                        <x:String>Higiene</x:String>
+                        <x:String>Limpeza</x:String>
+                        <x:String>Outros</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Início:" FontAttributes="Bold" />
+                        <DatePicker x:Name="dtp_inicio" DateSelected="FiltroChanged" Format="dd/MM/yyyy" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="Fim:" FontAttributes="Bold" />
+                        <DatePicker x:Name="dtp_fim" DateSelected="FiltroChanged" Format="dd/MM/yyyy" />
+                    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Frame BackgroundColor="{StaticResource Primary}" Padding="10">
+            <Label x:Name="lbl_total_filtrado" 
+                   TextColor="White" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" />
+        </Frame>
+
+        <ListView x:Name="lst_relatorio">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Descricao}" 
+                              Detail="{Binding Total, StringFormat='{}{0:c}'}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
